@@ -1,0 +1,32 @@
+.quote {
+  width: 80%;
+  margin: 4rem auto 4rem;
+  height: 30rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  position: relative;
+}
+
+.scrim {
+  height: fit-content;
+  width: fit-content;
+  background-color: hsla(0, 0%, 0%, 0.2);
+  box-shadow: 0 0 5rem hsl(240, 100%, 0%);
+}
+
+.quote blockquote {
+  font-size: clamp(1.9rem, 2.2721rem + -0.2459vw, 2.1rem);
+  color: hsl(0, 9%, 98%);
+  font-weight: 700;
+  text-align: center;
+}
+
+.quote cite span {
+  font-size: clamp(1.8rem, 2.2721rem + -0.2459vw, 2.1rem);
+  display: block;
+  color: hsl(0, 0%, 56%);
+  font-weight: 900;
+  padding: 2px 0 20px 48px;
+}

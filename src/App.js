@@ -3,6 +3,7 @@ import "./App.css";
 import BackgroundImage from "./features/backgroundImage/BackgroundImage";
 import Weather from "./features/weather/Weather";
 import Journal from "./features/journal/Journal";
+import Quote from "./features/quote/Quote";
 
 function App() {
   return (
@@ -16,7 +17,9 @@ function App() {
           <Journal />
           <aside></aside>
         </main>
-        <footer></footer>
+        <footer>
+          <Quote />
+        </footer>
       </BackgroundImage>
     </div>
   );
