@@ -4,6 +4,8 @@ import BackgroundImage from "./features/backgroundImage/BackgroundImage";
 import Weather from "./features/weather/Weather";
 import Journal from "./features/journal/Journal";
 import Quote from "./features/quote/Quote";
+import NextButton from "./features/backgroundImage/components/NextButton";
+import PreviousButton from "./features/backgroundImage/components/PreviousButton";
 
 function App() {
   return (
@@ -13,9 +15,13 @@ function App() {
           <Weather />
         </header>
         <main>
-          <aside></aside>
+          <aside>
+            <PreviousButton />
+          </aside>
           <Journal />
-          <aside></aside>
+          <aside>
+            <NextButton />
+          </aside>
         </main>
         <footer>
           <Quote />

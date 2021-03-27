@@ -12,3 +12,27 @@
   height: 100%;
   position: fixed;
 }
+
+/* Arrow Buttons */
+
+.button {
+  font-size: 10rem;
+  font-weight: 900;
+  margin-top: 240px;
+  padding: 0;
+  background: transparent;
+  border: none;
+  outline: 0;
+  cursor: pointer;
+  color: hsl(0, 0%, 100%);
+  position: absolute;
+  transition: all 0.2s ease-in 0s;
+}
+
+.next:hover {
+  color: hsl(120, 18%, 46%, 0.6);
+}
+
+.previous:hover {
+  color: hsla(0, 56%, 36%, 0.8);
+}
