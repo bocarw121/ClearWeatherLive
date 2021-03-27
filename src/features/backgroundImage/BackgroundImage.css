@@ -12,6 +12,11 @@
   height: 100%;
   position: fixed;
 }
+.bg-loading {
+  position: absolute;
+  top: 22%;
+  left: 50%;
+}
 
 /* Arrow Buttons */
 

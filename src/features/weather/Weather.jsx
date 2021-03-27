@@ -40,6 +40,7 @@ const Weather = () => {
         city={city}
         state={state}
         country={country}
+        isLoading={isLoading}
       />
     </div>
   );

@@ -1,13 +1,25 @@
 import React from "react";
+import Loading from "../../../components/Loading";
 
-const WeatherInformation = ({ country, city, state, weatherData }) => {
+const WeatherInformation = ({
+  country,
+  city,
+  state,
+  weatherData,
+  isLoading,
+}) => {
   const convertToFahrenheight = (temperature) => {
     return Math.round((temperature * 9) / 5 + 32);
   };
 
   const [temp, feelsLike, icon, description] = weatherData;
 
-  if (!temp) return null;
+  if (isLoading || !temp)
+    return (
+      <div className='weather-loading'>
+        <Loading type='cylon' color='blue' height={"50px"} width={"60px"} />
+      </div>
+    );
   return (
     <div>
       {city ? (

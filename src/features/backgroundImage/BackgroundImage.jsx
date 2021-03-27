@@ -4,6 +4,7 @@ import {
   backgroundImageSelector,
   fetchBackgroundImages,
 } from "./backgroundImageSlice";
+import Loading from "../../components/Loading";
 
 import "./BackgroundImage.css";
 
@@ -18,11 +19,21 @@ const BackgroundImage = ({ children }) => {
 
   return (
     <div className='background-image-wrapper'>
-      <img
-        alt=''
-        className='background-image'
-        src={imageUrls[currentImagePosition]}
-      />
+      {isLoading ? (
+        <Loading
+          bgImage='bg-loading'
+          type='spin'
+          color='#5f8bc5'
+          height={"100px"}
+          width={"60px"}
+        />
+      ) : (
+        <img
+          alt=''
+          className='background-image'
+          src={imageUrls[currentImagePosition]}
+        />
+      )}
       {children}
     </div>
   );

@@ -10,6 +10,13 @@
   font-weight: bold;
 }
 
+.weather-loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 16rem;
+}
+
 .weather-information {
   display: flex;
   justify-content: center;
