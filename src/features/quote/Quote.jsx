@@ -1,18 +1,22 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { fetchQuotes, quoteSelector } from "./quoteSlice";
+import { errorSelector } from "../error/errorSlice";
 import Loading from "../../components/Loading";
+import Error from "../error/Error";
 
 import "./Quote.css";
 
 const Quote = () => {
   const { quotes, isLoading } = useSelector(quoteSelector);
+  const { errorMessages } = useSelector(errorSelector);
   const [author, quote] = quotes;
   const dispatch = useDispatch();
 
   useEffect(() => dispatch(fetchQuotes()), [dispatch]);
 
-  if (isLoading)
+  if (errorMessages.quote) return <Error quote='quote-error' />;
+  if (isLoading || !quote)
     return (
       <div className='quote-loading'>
         <Loading

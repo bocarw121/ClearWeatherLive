@@ -3,6 +3,7 @@ import backgroundImageReducer from "../features/backgroundImage/backgroundImageS
 import weatherReducer from "../features/weather/weatherSlice";
 import journalReducer from "../features/journal/journalSlice";
 import quoteReducer from "../features/quote/quoteSlice";
+import errorReducer from "../features/error/errorSlice";
 
 export default configureStore({
   reducer: {
@@ -10,5 +11,6 @@ export default configureStore({
     weather: weatherReducer,
     journal: journalReducer,
     quote: quoteReducer,
+    error: errorReducer,
   },
 });

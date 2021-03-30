@@ -1,5 +1,8 @@
 import React from "react";
+import { useSelector } from "react-redux";
+import { errorSelector } from "../../../features/error/errorSlice";
 import Loading from "../../../components/Loading";
+import Error from "../../../features/error/Error";
 
 const WeatherInformation = ({
   country,
@@ -7,12 +10,24 @@ const WeatherInformation = ({
   state,
   weatherData,
   isLoading,
+  latitude,
+  longitude,
 }) => {
+  const { errorMessages } = useSelector(errorSelector);
   const convertToFahrenheight = (temperature) => {
     return Math.round((temperature * 9) / 5 + 32);
   };
 
   const [temp, feelsLike, icon, description] = weatherData;
+
+  if (errorMessages.weather)
+    return (
+      <Error
+        weather={"weather-Error"}
+        latitude={latitude}
+        longitude={longitude}
+      />
+    );
 
   if (isLoading || !temp)
     return (

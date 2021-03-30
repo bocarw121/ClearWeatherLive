@@ -13,6 +13,8 @@ const Weather = () => {
   const [city, setCity] = useState("");
   const [state, setState] = useState("");
   const [country, setCountry] = useState("");
+  const [latitude, setLatidude] = useState("");
+  const [longitude, setLongitude] = useState("");
 
   useEffect(() => {
     if ("geolocation" in navigator) {
@@ -20,6 +22,12 @@ const Weather = () => {
         const latitude = position.coords.latitude;
         const longitude = position.coords.longitude;
         const coordinates = [latitude, longitude];
+
+        /* Set latitude and longitude to pass as props to the Error Component
+           to use in the WeatherError component to re-dispatch fetchWeather.
+        */
+        setLatidude(latitude);
+        setLongitude(longitude);
 
         /*  Takes in the coordinates and 3 setters and returns the city, 
         state and country using Geocode which are then set into local 
@@ -41,6 +49,8 @@ const Weather = () => {
         state={state}
         country={country}
         isLoading={isLoading}
+        latitude={latitude}
+        longitude={longitude}
       />
     </div>
   );

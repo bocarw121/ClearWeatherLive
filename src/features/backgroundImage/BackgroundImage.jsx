@@ -4,7 +4,9 @@ import {
   backgroundImageSelector,
   fetchBackgroundImages,
 } from "./backgroundImageSlice";
+import { errorSelector } from "../error/errorSlice";
 import Loading from "../../components/Loading";
+import Error from "../error/Error";
 
 import "./BackgroundImage.css";
 
@@ -12,11 +14,12 @@ const BackgroundImage = ({ children }) => {
   const { imageUrls, currentImagePosition, isLoading } = useSelector(
     backgroundImageSelector
   );
-
+  const { errorMessages } = useSelector(errorSelector);
   const dispatch = useDispatch();
 
   useEffect(() => dispatch(fetchBackgroundImages()), [dispatch]);
 
+  if (errorMessages.bgImage) return <Error bgImage='bg-image-error' />;
   return (
     <div className='background-image-wrapper'>
       {isLoading ? (
