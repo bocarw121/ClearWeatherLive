@@ -14,14 +14,16 @@ const JournalTask = ({
   isComplete,
   setTaskDeleted,
   taskDeleted,
+  taskLength,
 }) => {
   const dispatch = useDispatch();
+
   return (
     <div>
-      <div className='action-btn-wrapper '>
+      <div className='action-btn-wrapper'>
         <button
-          className='remove'
-          aria-label='remove'
+          className={`remove-task ${taskLength > 40 && "remove-task-adjust"}`}
+          aria-label='remove task'
           key='remove'
           onClick={() => {
             dispatch(deleteTask(id));
@@ -31,8 +33,10 @@ const JournalTask = ({
           Remove
         </button>
         <button
-          aria-label='complete'
-          className='complete'
+          className={`complete-task ${
+            taskLength > 40 && "complete-task-adjust"
+          }`}
+          aria-label='complete task'
           key='complete'
           onClick={() => {
             dispatch(toggleCompletedTask(id));

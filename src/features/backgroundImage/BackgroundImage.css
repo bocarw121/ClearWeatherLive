@@ -18,6 +18,12 @@
   left: 50%;
 }
 
+@media screen and (max-width: 618px) {
+  .bg-loading {
+    top: 17%;
+  }
+}
+
 /* Arrow Buttons */
 
 .button {
@@ -29,15 +35,31 @@
   border: none;
   outline: 0;
   cursor: pointer;
-  color: hsl(0, 0%, 100%);
+  color: hsl(195, 6%, 64%);
   position: absolute;
   transition: all 0.2s ease-in 0s;
 }
 
 .next:hover {
-  color: hsl(120, 18%, 46%, 0.6);
+  color: hsla(120, 46%, 18%, 0.6);
 }
 
 .previous:hover {
-  color: hsla(0, 56%, 36%, 0.8);
+  color: hsla(0, 51%, 37%, 0.6);
+}
+
+@media screen and (max-width: 800px) {
+  .next {
+    margin-right: 20px;
+  }
+
+  .previous {
+    margin-left: 20px;
+  }
+}
+
+@media screen and (max-width: 618px) {
+  .button {
+    display: none;
+  }
 }

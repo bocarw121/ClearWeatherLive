@@ -11,14 +11,16 @@ const bgColors = [
 
 const getBgColors = (index) => bgColors[index % bgColors.length];
 
-const JournalTaskList = ({ tasks, setTaskDeleted, taskDeleted, isLoading }) => {
+const JournalTaskList = ({ tasks, setTaskDeleted, taskDeleted }) => {
   return (
     <div className='journal-list-container'>
       <ul className='flex margin-adjust'>
         {tasks.map(({ task, isComplete }, index) => {
+          const taskLength = task.length;
           return (
             <li
-              className={isComplete ? "task task-completed" : "task"}
+              className={`task ${isComplete && "task-completed"}
+                ${taskLength > 40 && "height-adjust"}`}
               key={index}
               style={{ backgroundColor: getBgColors(index) }}
             >
@@ -27,6 +29,7 @@ const JournalTaskList = ({ tasks, setTaskDeleted, taskDeleted, isLoading }) => {
                 taskDeleted={taskDeleted}
                 id={index}
                 isComplete={isComplete}
+                taskLength={taskLength}
               >
                 <p>{task}</p>
               </JournalTask>

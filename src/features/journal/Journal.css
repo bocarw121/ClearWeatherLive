@@ -1,5 +1,8 @@
 .journal-wrapper {
   margin-top: 120px;
+  font-family: 'Lato', sans-serif;
+  color: hsl(198, 29%, 93%);
+  min-width: 100%;
 }
 
 .text-box {
@@ -10,7 +13,7 @@
   margin-right: auto;
   border-radius: 10px;
   background-color: hsla(0, 2%, 44%, 0.6);
-  color: hsl(198, 29%, 93%);
+
   border: none;
   z-index: 10;
   position: relative;
@@ -18,8 +21,7 @@
 
 .text-box-title {
   text-align: center;
-  font-size: clamp(2.3rem, 1.9718rem + 1.0563vw, 4rem);
-  color: hsl(0, 0%, 100%);
+  font-size: clamp(2.4rem, 1.9718rem + 1.0563vw, 4rem);
   font-weight: 700;
   z-index: 10;
 }
@@ -28,15 +30,24 @@ input[type='text'] {
   text-align: center;
   border: 0;
   outline: 0;
-  font-size: clamp(2.5rem, 1.9718rem + 1.0563vw, 4rem);
+  font-size: clamp(2.4rem, 1.9718rem + 1.0563vw, 4rem);
   background: transparent;
   border-bottom: 2px solid hsla(0, 0%, 100%, 0.5);
+  color: hsl(198, 29%, 93%);
   width: 90%;
   position: absolute;
   left: 5%;
   top: 100px;
   display: block;
-  color: hsl(0, 0%, 100%);
+}
+
+@media screen and (max-width: 618px) {
+  .text-box {
+    width: 90%;
+  }
+  .text-box-title {
+    padding-right: 10px;
+  }
 }
 
 /* JounalTaskList */
@@ -52,7 +63,6 @@ input[type='text'] {
   opacity: 0.8;
   border-radius: 10px;
   background-color: hsla(0, 2%, 44%, 0.6);
-  color: hsl(0, 0%, 100%);
 }
 
 .task {
@@ -62,12 +72,16 @@ input[type='text'] {
   height: 7rem;
   border-radius: 15px;
   list-style-type: none;
-  margin: 15px 5px 0;
+  margin: 25px 5px 0;
   padding-left: 8px;
   padding-right: 8px;
   display: flex;
   align-items: center;
   justify-content: center;
+  -webkit-transform: translateZ(0);
+  -moz-transform: translateZ(0);
+  -ms-transform: translateZ(0);
+  transform: translateZ(0);
 }
 
 .task p {
@@ -86,6 +100,19 @@ input[type='text'] {
   margin-left: -40px;
 }
 
+@media screen and (max-width: 1200px) {
+  .task {
+    width: 90%;
+    text-align: center;
+  }
+}
+
+@media screen and (max-width: 618px) {
+  .journal-list-container {
+    width: 90%;
+  }
+}
+
 /* JournalTask */
 
 .action-btn-wrapper {
@@ -98,10 +125,16 @@ input[type='text'] {
   display: block;
 }
 
-.remove {
-  outline: 0;
+.task-loading {
   position: absolute;
-  top: -35px;
+}
+
+.remove-task {
+  font-family: 'Lato', sans-serif;
+  font-weight: 700;
+  outline: 0;
+  position: fixed;
+  bottom: 55px;
   left: 10px;
   border-radius: 10px;
   background-color: hsl(0, 100%, 50%);
@@ -111,15 +144,18 @@ input[type='text'] {
   border: none;
   cursor: pointer;
 }
+
 .remove:hover {
   opacity: 1;
 }
 
-.complete {
+.complete-task {
+  font-family: 'Lato', sans-serif;
+  font-weight: 700;
   outline: 0;
-  position: absolute;
-  top: -35px;
-  left: 75px;
+  position: fixed;
+  bottom: 55px;
+  left: 80px;
   border-radius: 10px;
   background-color: hsl(120, 100%, 25%);
   color: hsl(0, 0%, 100%);
@@ -135,4 +171,33 @@ input[type='text'] {
 
 .task-completed {
   opacity: 0.2;
+}
+
+/* Adjustments for tasks with length greater than 40 */
+
+.height-adjust {
+  height: fit-content;
+  display: block;
+  padding: 30px;
+}
+
+.height-adjust p {
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+}
+
+.remove-task-adjust {
+  bottom: 69px;
+}
+.complete-task-adjust {
+  bottom: 69px;
+}
+
+@media screen and (max-width: 618px) {
+  .remove-task-adjust {
+    bottom: 90px;
+  }
+  .complete-task-adjust {
+    bottom: 90px;
+  }
 }

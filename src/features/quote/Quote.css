@@ -7,6 +7,7 @@
   align-items: center;
   flex-wrap: wrap;
   position: relative;
+  font-family: 'Lato', sans-serif;
 }
 .quote-loading {
   width: 50%;
@@ -31,13 +32,23 @@
   font-size: clamp(1.9rem, 2.2721rem + -0.2459vw, 2.1rem);
   color: hsl(0, 9%, 98%);
   font-weight: 700;
+
   text-align: center;
 }
 
 .quote cite span {
-  font-size: clamp(1.8rem, 2.2721rem + -0.2459vw, 2.1rem);
+  font-size: clamp(2rem, 2.2721rem + -0.2459vw, 2.4rem);
   display: block;
-  color: hsl(0, 0%, 56%);
+  color: hsl(0, 15%, 92%);
   font-weight: 900;
   padding: 2px 0 20px 48px;
+}
+
+@media screen and (max-width: 800px) {
+  .quote {
+    width: 90%;
+  }
+  .scrim {
+    width: 100%;
+  }
 }
